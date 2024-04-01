@@ -1,0 +1,59 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+!datafiles/*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# any csv or log files
+*.csv
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# File-based project format
+*.iws
+
+# IntelliJ
+*.iml
+.idea
+
+**/out/
+
+# Mac
+.DS_Store
+
+# Gradle
+.gradle
+**/build/
+#The wrapper jar must be checked in
+!gradle/wrapper/gradle-wrapper.jar
+
+# Log files
+**/mwc-dev-logs/*
+**/mwc-logs/*
+
+# angular frontend cache folder
+**/.angular/
+**/.vscode/
+
+**/node_modules/
+
+
