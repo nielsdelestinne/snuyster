@@ -2,6 +2,9 @@
 
 workspace=$(pwd)
 
+supported_java_major_version="21"
+supported_python_major_version="3"
+
 reports_folder="reports"
 repositories_folder="repositories"
 repositories_to_clone_filename="${repositories_folder}/to-clone.txt"
