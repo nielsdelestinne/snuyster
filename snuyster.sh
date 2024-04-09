@@ -38,8 +38,12 @@ if [ ! -f "$info_log_file" ]; then
     touch "$info_log_file"
 fi
 
-# Initialize
-source "${workspace}/src/components/initialize/initialize.sh"
-
-# LOAD MENU
-source "${workspace}/src/components/menu.sh"
+if [[ $1 == "menu" ]]; then
+  # SKIP INITIALIZE & LOAD MENU
+  source "${workspace}/src/components/menu.sh"
+else
+  # INITIALIZE
+  source "${workspace}/src/components/initialize/initialize.sh"
+  # LOAD MENU
+  source "${workspace}/src/components/menu.sh"
+fi

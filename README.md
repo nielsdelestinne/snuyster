@@ -110,7 +110,7 @@ Run `./plot.sh`
 
 Gebruik de unofficial code-maat docker image, komt met python en cloc en voorziet in een bash.
 
-- [ ] Dockerize
+- [x] Dockerize
   - Start docker
   - Mount / provide a list of repositories to clone
   - OR, mount the folder in which the already clones repositories exist
@@ -126,7 +126,10 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
 - [ ] check TODOs in code
 - [ ] Write explanation in tool (for user)
 - [ ] Rerunning summary will give a reindexing error (might also be an issue with the other options)
-- [ ] Allow to develop without the need for docker (code-maat, python tooling is mainly an issue. Also we have to explicitly run snuyster via bash, not zsh due to readarray; `bash snuyster.sh`)
+- [x] Allow to develop without the need for docker (code-maat, python tooling is mainly an issue. Also we have to explicitly run snuyster via bash, not zsh due to readarray; `bash snuyster.sh`)
+  - [ ] Document direnv / asdf
+- [ ] Provide a help option
+- [ ] Add Plot functionality to summary
 
 # Resources
 

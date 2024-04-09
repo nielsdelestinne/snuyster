@@ -28,16 +28,17 @@ def merge_csv_files(file_paths, repository):
     return merged_df
 
 
-def generate_file_paths(analyses, repository):
+def generate_file_paths(workspace, analyses, repository):
     file_paths = []
     for analysis in analyses:
-        file_paths.append(f"/reports/{repository}_{analysis}.csv")
+        file_paths.append(f"{workspace}/reports/{repository}_{analysis}.csv")
     return file_paths
 
 
 analyses = ['age', 'soc', 'entity-churn', 'revloc']
-repository = sys.argv[1]
+workspace = sys.argv[1]
+repository = sys.argv[2]
 
-merged_df = merge_csv_files(generate_file_paths(analyses, repository), repository)
+merged_df = merge_csv_files(generate_file_paths(workspace, analyses, repository), repository)
 
-merged_df.to_csv(f"/reports/aggregated_extended_{repository}.csv", index=False)
+merged_df.to_csv(f"{workspace}/reports/aggregated/extended_{repository}.csv", index=False)

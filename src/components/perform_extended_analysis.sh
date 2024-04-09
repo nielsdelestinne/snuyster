@@ -25,9 +25,9 @@ done
 
 # Aggregate results
 for repository in "${repository_names[@]}"; do
-  python "${workspace}/src/functionality/aggregate_extended_analysis_single_repository.py" "${repository}"
+  python "${workspace}/src/functionality/aggregate_extended_analysis_single_repository.py" "${workspace}" "${repository}"
 done
-python "${workspace}/src/functionality/aggregate_extended_analysis_multiple_repositories.py"
+python "${workspace}/src/functionality/aggregate_extended_analysis_multiple_repositories.py" "${workspace}"
 
 # Footer
 source "${workspace}/src/components/menu_task_footer.sh"

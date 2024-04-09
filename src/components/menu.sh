@@ -9,12 +9,12 @@ echo "║ ║ ░░░░░░░░░░░░░░░░░░░░░░
 echo "║ ╚══════════════════════════════════════════════════════════════════════════════════════╝ ║"
 echo "╚═════╤════════════════════════════════════════════════════════════════════════════════════╝"
 
-COLUMNS=true
+COLUMNS=12
 options_echo_prefix="   │ "
 listRepositoriesOption="${options_echo_prefix}🟠 List repositories"
 performSummaryAnalysisOption="${options_echo_prefix}🟢 Perform summary analysis"
-performFullAnalysisOption="${options_echo_prefix}🔵 Perform full analysis"
-performSingleAnalysisOption="${options_echo_prefix}⚪️ Perform single analysis"
+performFullAnalysisOption="${options_echo_prefix}🔵 Perform extended analysis"
+performSingleAnalysisOption="${options_echo_prefix}🟣 Perform single analysis"
 quitOption="${options_echo_prefix}❌  Quit"
 options=("${listRepositoriesOption}" "${performSummaryAnalysisOption}" "${performFullAnalysisOption}" "${performSingleAnalysisOption}" "${quitOption}")
 
@@ -41,7 +41,7 @@ do
             break
             ;;
         "${performSingleAnalysisOption}")
-            source "${workspace}/src/components/perform_individual_analysis.sh"
+            source "${workspace}/src/components/perform_single_analysis.sh"
             source "${workspace}/src/components/menu.sh"
             break
             ;;

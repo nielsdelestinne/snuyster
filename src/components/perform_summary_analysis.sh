@@ -21,7 +21,7 @@ perform_analysis summary "${repository_names[*]}"
 unset IFS
 
 # Aggregate results
-python "${workspace}/src/functionality/aggregate_summary_analysis.py"
+python "${workspace}/src/functionality/aggregate_summary_analysis.py" "${workspace}"
 
 # Footer
 source "${workspace}/src/components/menu_task_footer.sh"

@@ -1,5 +1,6 @@
 import pandas as pd
 import glob
+import sys
 
 
 def generate_aggregated_data_file(file_paths):
@@ -34,10 +35,12 @@ def generate_aggregated_data_file(file_paths):
     return combined_df
 
 
-file_pattern = "/reports/aggregated_extended_*.csv"
+workspace = sys.argv[1]
+
+file_pattern = f"{workspace}/reports/aggregated/extended_*.csv"
 file_paths = sorted(glob.glob(file_pattern))
 
 result = generate_aggregated_data_file(file_paths)
-filename = "/reports/aggregated_extended.csv"
+filename = f"{workspace}/reports/aggregated/extended.csv"
 
 result.to_csv(filename, index=False)

@@ -23,5 +23,12 @@ else
   echo "${echo_prefix}    └── ❌  Python is on version ${python_major_version}, please upgrade to version ${supported_python_major_version} to avoid any weird behavior."
 fi
 
+cloc_major_version=$(cloc --version | grep -o -m 1 '^[0-9]*')
+if [ "${cloc_major_version}" == "${supported_cloc_major_version}" ]; then
+  echo "${echo_prefix}    └── ✅  Cloc is on version ${supported_cloc_major_version}."
+else
+  echo "${echo_prefix}    └── ❌  Cloc is on version ${cloc_major_version}, please upgrade to version ${supported_cloc_major_version} to avoid any weird behavior."
+fi
+
 echo "${echo_prefix}"
 read -rp "${echo_prefix}Press enter to continue..."

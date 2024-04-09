@@ -1,7 +1,9 @@
+import glob
 import pandas as pd
+import sys
 
 
-def generate_aggregated_data_file(file_paths, analysis_mode):
+def generate_aggregated_data_file(workspace, file_paths, analysis_mode):
     # Initialize an empty DataFrame to store the combined data
     combined_df = pd.DataFrame()
 
@@ -27,13 +29,12 @@ def generate_aggregated_data_file(file_paths, analysis_mode):
     combined_df.set_index('repository', inplace=True)
 
     # Save the combined DataFrame as a CSV file
-    combined_df.to_csv(f'/reports/aggregated_{analysis_mode}.csv')
+    combined_df.to_csv(f'{workspace}/reports/aggregated/{analysis_mode}.csv')
 
 
-import glob
-
+workspace = sys.argv[1]
 analysis_mode = "summary"
-file_pattern = f'/reports/*_{analysis_mode}.csv'
+file_pattern = f'{workspace}/reports/*_{analysis_mode}.csv'
 file_paths = sorted(glob.glob(file_pattern))
 
-generate_aggregated_data_file(file_paths, analysis_mode)
+generate_aggregated_data_file(workspace, file_paths, analysis_mode)

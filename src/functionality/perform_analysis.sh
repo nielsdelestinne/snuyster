@@ -24,9 +24,7 @@ function perform_analysis() {
           # Lines-of-code counting
           cd "${workspace}/${repositories_folder}/${repository}" || exit
           cloc . --vcs=git --by-file --csv --out="${workspace}/${reports_folder}/${repository}_${analysis_to_run}.csv" > /dev/null 2>>"${workspace}/${error_log_file}" # TODO use error method with timestamp
-#          # Remove the repository name from the file paths inside cloc result, to be compatible - and mergeable - with code-maat results
-#          cd "${workspace}/${reports_folder}" || exit
-#          sed -i "" "s|\.\./${repository}/|./|g" "${analysis_to_run}_${repository}.csv"
+          cd "${workspace}" || exit
         else
           if [ $analysis_to_run == 'revloc' ]; then
             output=$(python "${workspace}/src/functionality/generate_revision_per_loc.py" "${workspace}/${reports_folder}/${repository}_revisions.csv" "${workspace}/${reports_folder}/${repository}_cloc.csv")
