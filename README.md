@@ -119,7 +119,7 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
 - [ ] Properly document
 - [ ] Release as 1.0.0 (ARM... also AMD?)
 - [x] improve
-- [ ] Add a nice logo
+- [x] Add a nice logo
 - [ ] Push image to dockerhub
 - [x] Create an unofficial fork from code-maat and use it in Dockerfile
 - [ ] Use functions!

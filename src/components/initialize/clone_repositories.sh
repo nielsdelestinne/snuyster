@@ -17,7 +17,7 @@ if [ -s "${repositories_to_clone_filename}" ]; then
         echo "${echo_prefix}    └── ➝ Skipped: already exists."
       else
         echo "${echo_prefix}    └── ✗ Error: ${error:0:50}... [...]"
-        source "${workspace}/src/components/log_error.sh" "${error}"
+        log "${error}"
       fi
     else
       echo "${echo_prefix}    └── ✓ Success: repository cloned."

@@ -34,13 +34,11 @@ clear
 
 source src/configuration/variables.sh
 source src/configuration/tools.sh
+source src/components/logger.sh
 
-# Create log files
-if [ ! -f "$error_log_file" ]; then
-    touch "$error_log_file"
-fi
-if [ ! -f "$info_log_file" ]; then
-    touch "$info_log_file"
+# Create log file
+if [ ! -f "$log_file" ]; then
+    touch "$log_file"
 fi
 
 if [[ $1 == "menu" ]]; then

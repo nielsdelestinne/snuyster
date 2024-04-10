@@ -20,7 +20,7 @@ function perform_analysis() {
     if [ $analysis_to_run == 'cloc' ]; then
       # Lines-of-code counting
       cd "${workspace}/${repositories_folder}/${repository}" || exit
-      cloc . --vcs=git --by-file --csv --out="${workspace}/${reports_folder}/${repository}_${analysis_to_run}.csv" > /dev/null 2>>"${workspace}/${error_log_file}" # TODO use error method with timestamp
+      cloc . --vcs=git --by-file --csv --out="${workspace}/${reports_folder}/${repository}_${analysis_to_run}.csv" 2>&1 > /dev/null
       cd "${workspace}" || exit
     else
       if [ $analysis_to_run == 'revloc' ]; then

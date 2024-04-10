@@ -46,10 +46,6 @@ hs_err_pid*
 #The wrapper jar must be checked in
 !gradle/wrapper/gradle-wrapper.jar
 
-# Log files
-**/mwc-dev-logs/*
-**/mwc-logs/*
-
 # angular frontend cache folder
 **/.angular/
 **/.vscode/

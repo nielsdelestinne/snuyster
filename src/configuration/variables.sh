@@ -12,8 +12,7 @@ repositories_to_clone_filename="${repositories_folder}/to-clone.txt"
 git_logs_folder="git-logs"
 
 logs_folder="logs"
-error_log_file="${logs_folder}/error.log"
-info_log_file="${logs_folder}/info.log"
+log_file="${logs_folder}/snuyster.log"
 
 echo_prefix="     ║ ║ "
 
