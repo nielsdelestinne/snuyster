@@ -4,7 +4,7 @@ workspace=$(pwd)
 
 supported_java_major_version="21"
 supported_python_major_version="3"
-supported_cloc_major_version="2"
+supported_cloc_major_version="1"  # although cloc v2 is released, apt-get host only up to v1.9
 
 results_folder="/results"
 reports_folder="${results_folder}/reports"
