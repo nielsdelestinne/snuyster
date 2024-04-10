@@ -123,6 +123,7 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
 - [ ] Push image to dockerhub
 - [x] Create an unofficial fork from code-maat and use it in Dockerfile
 - [ ] Use functions!
+- [ ] Re evaluate logging... overkill for now?
 - [ ] check TODOs in code
 - [ ] Write explanation in tool (for user)
 - [ ] Rerunning summary will give a reindexing error (might also be an issue with the other options)
@@ -130,6 +131,11 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
   - [ ] Document direnv / asdf
 - [ ] Provide a help option
 - [ ] Add Plot functionality to summary
+- [ ] Restructure folders so that only one folder needs to be mounted
+  - All other folders should be created if they do not yet exits.
+- [x] analysis messages does not work - requires extra parameter
+  - excluded for now
+- [ ] provide ssh keys for private git repository access from inside docker container
 
 # Resources
 
