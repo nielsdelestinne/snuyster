@@ -40,11 +40,12 @@ case $option in
       source "${workspace}/src/components/menu.sh"
       exit
       ;;
-  exit)
+  5)
       exit
       ;;
-  \?) # Invalid option
-      echo "Error: Invalid option provided. Please provide a number or exit"
+  *) # Invalid option
+      clear
+      source "${workspace}/src/components/menu.sh"
       exit
       ;;
 esac

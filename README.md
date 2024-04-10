@@ -30,8 +30,15 @@ Some scripts to perform code analyses
 docker run \
 -v /Users/niedel/private-repos/snuyster/results:/results \
 -v /Users/niedel/private-repos/snuyster/repositories:/repositories \
+-v ~/.ssh:/root/.ssh:ro \
 --name snuyster -it niedel/snuyster
 ```
+
+After closing your initial session, you can simply start the container and exec into it:
+
+1. `docker start snuyster`
+2. `docker exec -it snuyster bash`
+3. `./snusyter.sh`
 
 # Contribute
 
@@ -127,6 +134,7 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
 - [ ] Create a nice README
   - [ ] Write explanation in tool (for user)
   - [ ] Document direnv / asdf
+  - [ ] to-clone requires an empty line or it skips the last repo
 
 # Resources
 

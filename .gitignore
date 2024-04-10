@@ -15,6 +15,9 @@
 *.csv
 *.log
 
+# any cloned repositories
+repositories/**
+
 # Package Files #
 *.jar
 *.war

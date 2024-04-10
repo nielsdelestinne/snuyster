@@ -1,2 +1,4 @@
 https://github.com/nielsdelestinne/niedel.be
 https://github.com/nielsdelestinne/homewizard-local-energy
+git@github.com:nielsdelestinne/asp-dot-net-core-token-based-security.git
+git@github.com:nielsdelestinne/xdashboard.git

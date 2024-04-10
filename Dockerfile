@@ -1,4 +1,4 @@
-FROM clojure:temurin-21-lein-bullseye-slim
+FROM clojure:temurin-21-lein-jammy
 
 # Copy all files from Snuister
 COPY snuyster.sh LICENSE /
@@ -6,12 +6,13 @@ COPY src/ /src/
 
 # Install dependencies
 RUN apt-get update -y
+RUN apt-get upgrade -y
+RUN apt-get install -y openssh-client
 RUN apt-get install -y git
 RUN apt-get install -y cloc
 RUN apt-get install -y python3
 RUN apt-get install -y pip
 
-# Clone source code of code-maat
 ARG code_maat_local_repo=/code-maat
 
 RUN git clone https://github.com/nielsdelestinne/code-maat.git $code_maat_local_repo
