@@ -23,28 +23,28 @@ case $option in
   1)
       source "${workspace}/src/components/list_repositories.sh"
       source "${workspace}/src/components/menu.sh"
-      break
+      exit
       ;;
   2)
       source "${workspace}/src/components/perform_summary_analysis.sh"
       source "${workspace}/src/components/menu.sh"
-      break
+      exit
       ;;
   3)
       source "${workspace}/src/components/perform_extended_analysis.sh"
       source "${workspace}/src/components/menu.sh"
-      break
+      exit
       ;;
   4)
       source "${workspace}/src/components/perform_single_analysis.sh"
       source "${workspace}/src/components/menu.sh"
-      break
+      exit
       ;;
   exit)
       exit
       ;;
   \?) # Invalid option
       echo "Error: Invalid option provided. Please provide a number or exit"
-      break
+      exit
       ;;
 esac
