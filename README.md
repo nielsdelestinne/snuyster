@@ -117,25 +117,18 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
   - in docker container, run ./inspect.sh
 - [ ] Set correct license (see `generate_revision_per_loc`)
 - [ ] Properly document
+- [ ] replace "skip" menu argument with menu option (for docker)
 - [ ] Release as 1.0.0 (ARM... also AMD?)
-- [x] improve
-- [x] Add a nice logo
 - [ ] Push image to dockerhub
-- [x] Create an unofficial fork from code-maat and use it in Dockerfile
-- [ ] Use functions!
-- [ ] Re evaluate logging... overkill for now?
-- [ ] check TODOs in code
-- [ ] Write explanation in tool (for user)
-- [ ] Rerunning summary will give a reindexing error (might also be an issue with the other options)
-- [x] Allow to develop without the need for docker (code-maat, python tooling is mainly an issue. Also we have to explicitly run snuyster via bash, not zsh due to readarray; `bash snuyster.sh`)
-  - [ ] Document direnv / asdf
+  - Simplified
 - [ ] Provide a help option
 - [ ] Add Plot functionality to summary
 - [ ] Restructure folders so that only one folder needs to be mounted
   - All other folders should be created if they do not yet exits.
-- [x] analysis messages does not work - requires extra parameter
-  - excluded for now
 - [ ] provide ssh keys for private git repository access from inside docker container
+- [ ] Create a nice README
+  - [ ] Write explanation in tool (for user)
+  - [ ] Document direnv / asdf
 
 # Resources
 
