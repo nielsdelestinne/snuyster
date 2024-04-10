@@ -1,9 +1,9 @@
 #!/bin/bash
-echo "  ┌───┘"
-echo "  │"
-echo "  │  ▷▷  G E N E R A T E   G I T   L O G "
-echo "  │"
-echo "  └───┐"
+echo " ╔═╔═╝═╝ "
+echo " ║ ║ "
+echo " ║ ║  ▷▷  G E N E R A T E   G I T   L O G "
+echo " ║ ║ "
+echo " ╚═╚═╗═╗"
 
 echo "${echo_prefix}"
 echo "${echo_prefix}Provide the start date of the history: "

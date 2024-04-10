@@ -1,9 +1,9 @@
 #!/bin/bash
-echo "  ┌───┘"
-echo "  │"
-echo "  │  ▷▷  C L O N E   R E P O S I T O R I E S"
-echo "  │"
-echo "  └───┐"
+echo " ╔═╔═╝═╝ "
+echo " ║ ║ "
+echo " ║ ║  ▷▷  C L O N E   R E P O S I T O R I E S"
+echo " ║ ║ "
+echo " ╚═╚═╗═╗"
 if [ -s "${repositories_to_clone_filename}" ]; then
   echo "${echo_prefix}"
   echo "${echo_prefix}File ${repositories_to_clone_filename} found."

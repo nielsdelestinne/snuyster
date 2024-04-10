@@ -15,6 +15,6 @@ logs_folder="logs"
 error_log_file="${logs_folder}/error.log"
 info_log_file="${logs_folder}/info.log"
 
-echo_prefix="      │ "
+echo_prefix="     ║ ║ "
 
 array_delimiter=";"

@@ -1,8 +1,9 @@
 #!/bin/bash
-echo "  │"
-echo "  │  ▷▷  C H E C K   V E R S I O N S"
-echo "  │"
-echo "  └───┐"
+echo " ╔═╔═╝═╝ "
+echo " ║ ║ "
+echo " ║ ║  ▷▷  C H E C K   V E R S I O N S"
+echo " ║ ║ "
+echo " ╚═╚═╗═╗"
 
 echo "${echo_prefix}"
 echo "${echo_prefix}Checking versions of required tools:"

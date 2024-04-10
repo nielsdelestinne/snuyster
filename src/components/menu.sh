@@ -2,20 +2,21 @@
 echo "╔══════════════════════════════════════════════════════════════════════════════════════════╗"
 echo "║ ╔══════════════════════════════════════════════════════════════════════════════════════╗ ║"
 echo "║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
-echo "║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
-echo "║ ║ ░░░ ✵  M E N U ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
-echo "║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
+echo "║ ║ ░░░                                                       ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
+echo "║ ║ ░░░   ▷  M E N U                                          ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
+echo "║ ║ ░░░                                                       ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
 echo "║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
 echo "║ ╚══════════════════════════════════════════════════════════════════════════════════════╝ ║"
 echo "╚════╗ ╔═══════════════════════════════════════════════════════════════════════════════════╝"
-echo "     ╙┬╜ "
+
 COLUMNS=12
-options_echo_prefix="   │ "
+options_echo_prefix="  ║ ║ "
+options_echo_prefix_last="  ╚═╝ "
 listRepositoriesOption="${options_echo_prefix}➊ List repositories"
 performSummaryAnalysisOption="${options_echo_prefix}➋ Perform summary analysis"
 performFullAnalysisOption="${options_echo_prefix}➌ Perform extended analysis"
 performSingleAnalysisOption="${options_echo_prefix}➍ Perform single analysis"
-quitOption="${options_echo_prefix}✗ Quit"
+quitOption="${options_echo_prefix_last}✗ Quit"
 options=("${listRepositoriesOption}" "${performSummaryAnalysisOption}" "${performFullAnalysisOption}" "${performSingleAnalysisOption}" "${quitOption}")
 
 echo "${echo_prefix}"

@@ -6,11 +6,11 @@ function perform_analysis() {
   IFS="${array_delimiter}" read -r -a repositories <<< "$2"
   analysis_title=$(echo "${analysis_to_run}" | sed 's/./& /g' | tr '[:lower:]' '[:upper:]')
 
-  echo "  ┌───┘"
-  echo "  │"
-  echo "  │  ▷▷  P E R F O R M   A N A L Y S I S   :   ${analysis_title}"
-  echo "  │"
-  echo "  └───┐"
+  echo " ╔═╔═╝═╝ "
+  echo " ║ ║ "
+  echo " ║ ║  ▷▷  P E R F O R M   A N A L Y S I S   :   ${analysis_title}"
+  echo " ║ ║ "
+  echo " ╚═╚═╗═╗"
 
   echo "${echo_prefix}"
 
