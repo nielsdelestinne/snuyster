@@ -39,7 +39,7 @@ read -rp "${echo_prefix}    └── " analysis_to_run
 if [[ -z "$analysis_to_run" ]]; then
     invalid_analysis_mode
 else
-  supported_analyses=("abs-churn" "age" "author-churn" "authors" "communication" "coupling" "entity-churn" "entity-effort" "entity-ownership" "fragmentation" "identity" "main-dev" "main-dev-by-revs" "refactoring-main-dev" "revisions" "soc" "summary")
+  supported_analyses=("cloc" "revloc" "abs-churn" "age" "author-churn" "authors" "communication" "coupling" "entity-churn" "entity-effort" "entity-ownership" "fragmentation" "identity" "main-dev" "main-dev-by-revs" "refactoring-main-dev" "revisions" "soc" "summary")
   # shellcheck disable=SC2199
   if [[ ${supported_analyses[@]} =~ ${analysis_to_run} ]]; then
     # Perform analysis
