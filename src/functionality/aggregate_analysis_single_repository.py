@@ -5,7 +5,7 @@ workspace = sys.argv[1]
 analysis_to_run = sys.argv[2]
 repository = sys.argv[3]
 
-file_path = f'{workspace}/reports/{repository}_{analysis_to_run}.csv'
+file_path = f'{workspace}/results/reports/{repository}_{analysis_to_run}.csv'
 
 df = pd.read_csv(file_path)
 df['repository'] = repository

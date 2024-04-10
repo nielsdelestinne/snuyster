@@ -37,10 +37,10 @@ def generate_aggregated_data_file(file_paths):
 
 workspace = sys.argv[1]
 
-file_pattern = f"{workspace}/reports/aggregated/extended_*.csv"
+file_pattern = f"{workspace}/results/reports/aggregated/extended_*.csv"
 file_paths = sorted(glob.glob(file_pattern))
 
 result = generate_aggregated_data_file(file_paths)
-filename = f"{workspace}/reports/aggregated/extended.csv"
+filename = f"{workspace}/results/reports/aggregated/extended.csv"
 
 result.to_csv(filename, index=False)

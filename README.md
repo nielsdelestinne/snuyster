@@ -28,10 +28,8 @@ Some scripts to perform code analyses
 
 ```
 docker run \
--v /Users/niedel/private-repos/snuyster/reports:/reports \
+-v /Users/niedel/private-repos/snuyster/results:/results \
 -v /Users/niedel/private-repos/snuyster/repositories:/repositories \
--v /Users/niedel/private-repos/snuyster/logs:/logs \
--v /Users/niedel/private-repos/snuyster/git-logs:/git-logs \
 --name snuyster -it niedel/snuyster
 ```
 

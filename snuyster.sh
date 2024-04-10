@@ -36,9 +36,21 @@ source src/configuration/variables.sh
 source src/configuration/tools.sh
 source src/components/logger.sh
 
-# Create log file
-if [ ! -f "$log_file" ]; then
-    touch "$log_file"
+# Create required directories and files if they do not yet exist
+if [ ! -d "${workspace}/$reports_folder" ]; then
+    mkdir "${workspace}/$reports_folder"
+fi
+if [ ! -d "${workspace}/$reports_aggregated_folder" ]; then
+    mkdir "${workspace}/$reports_aggregated_folder"
+fi
+if [ ! -d "${workspace}/$git_logs_folder" ]; then
+    mkdir "${workspace}/$git_logs_folder"
+fi
+if [ ! -d "${workspace}/$logs_folder" ]; then
+    mkdir "${workspace}/$logs_folder"
+fi
+if [ ! -f "${workspace}/$log_file" ]; then
+    touch "${workspace}/$log_file"
 fi
 
 if [[ $1 == "menu" ]]; then

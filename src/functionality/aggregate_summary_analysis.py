@@ -29,12 +29,12 @@ def generate_aggregated_data_file(workspace, file_paths, analysis_mode):
     combined_df.set_index('repository', inplace=True)
 
     # Save the combined DataFrame as a CSV file
-    combined_df.to_csv(f'{workspace}/reports/aggregated/{analysis_mode}.csv')
+    combined_df.to_csv(f'{workspace}/results/reports/aggregated/{analysis_mode}.csv')
 
 
 workspace = sys.argv[1]
 analysis_mode = "summary"
-file_pattern = f'{workspace}/reports/*_{analysis_mode}.csv'
+file_pattern = f'{workspace}/results/reports/*_{analysis_mode}.csv'
 file_paths = sorted(glob.glob(file_pattern))
 
 generate_aggregated_data_file(workspace, file_paths, analysis_mode)

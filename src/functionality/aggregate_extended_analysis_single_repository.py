@@ -31,7 +31,7 @@ def merge_csv_files(file_paths, repository):
 def generate_file_paths(workspace, analyses, repository):
     file_paths = []
     for analysis in analyses:
-        file_paths.append(f"{workspace}/reports/{repository}_{analysis}.csv")
+        file_paths.append(f"{workspace}/results/reports/{repository}_{analysis}.csv")
     return file_paths
 
 
@@ -41,4 +41,4 @@ repository = sys.argv[2]
 
 merged_df = merge_csv_files(generate_file_paths(workspace, analyses, repository), repository)
 
-merged_df.to_csv(f"{workspace}/reports/aggregated/extended_{repository}.csv", index=False)
+merged_df.to_csv(f"{workspace}/results/reports/aggregated/extended_{repository}.csv", index=False)

@@ -18,10 +18,10 @@ def generate_aggregated_data_file(file_paths):
 workspace = sys.argv[1]
 analysis_to_run = sys.argv[2]
 
-file_pattern = f"{workspace}/reports/*_{analysis_to_run}.csv"
+file_pattern = f"{workspace}/results/reports/*_{analysis_to_run}.csv"
 file_paths = sorted(glob.glob(file_pattern))
 
 result = generate_aggregated_data_file(file_paths)
-filename = f"{workspace}/reports/aggregated/{analysis_to_run}.csv"
+filename = f"{workspace}/results/reports/aggregated/{analysis_to_run}.csv"
 
 result.to_csv(filename, index=False)
