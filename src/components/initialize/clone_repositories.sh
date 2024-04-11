@@ -4,12 +4,13 @@ echo " ║ ║ "
 echo " ║ ║  ▷▷  C L O N E   R E P O S I T O R I E S"
 echo " ║ ║ "
 echo " ╚═╚═╗═╗"
+
 if [ -s "${repositories_to_clone_filename}" ]; then
   echo "${echo_prefix}"
   echo "${echo_prefix}File ${repositories_to_clone_filename} found."
   echo "${echo_prefix}    └── ▷ starting to clone repositories..."
   echo "${echo_prefix}"
-  while IFS= read -r repository; do
+  while IFS= read -r repository || [[ -n "$repository" ]]; do
     echo "${echo_prefix}▷ Cloning ${repository}"
     cd ${repositories_folder} || exit
      if ! error=$(git clone "${repository}" 2>&1 > /dev/null); then
@@ -37,7 +38,7 @@ if [[ "${error}" != *"Cloning into"* ]]; then
     echo "${echo_prefix}"
   else
     echo "${echo_prefix}✗ Cloning repositories finished with errors."
-    echo "${echo_prefix}    └── Please inspect the output above or the logs (${error_log_file}) for details."
+    echo "${echo_prefix}    └── Please inspect the output above or the logs (${log_file}) for details."
     echo "${echo_prefix}"
   fi
 else

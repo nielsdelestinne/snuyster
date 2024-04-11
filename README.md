@@ -132,10 +132,8 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
   - Simplified
 - [ ] Provide a help option
 - [ ] Add Plot functionality to summary
-- [ ] Restructure folders so that only one folder needs to be mounted
-  - All other folders should be created if they do not yet exits.
 - [ ] Create a nice README
-- - [ ] Document direnv / asdf
+[ ] Document direnv / asdf
 - [ ] Write explanation in tool (for user)
 - [ ] to-clone requires an empty line or it skips the last repo
 
