@@ -16,15 +16,11 @@ fi
 
 mkdir -p git-logs
 
-cloned_repositories=()
-while IFS= read -r -d $'\0' repository; do
-    cloned_repositories+=("$repository")
-done < <(find "${workspace}/${repositories_folder}" -mindepth 1 -maxdepth 1 -type d -print0)
+# Get cloned repository names
+source "${workspace}/src/shared/get_cloned_repository_names.sh"
+readarray -t repository_names < <(get_cloned_repository_names)
 
-for repository_path in "${cloned_repositories[@]}"; do
-    repository_name="${repository_path##*/}"  # extracts repo-name.git from my/path/to/repositories/repo-name.git
-    repository_name="${repository_name%.git}" # extract repo-name from repo-name.git if .git suffix exists
-
+for repository_name in "${repository_names[@]}"; do
     # Change directory and execute git log command
     cd "${workspace}/${repositories_folder}/${repository_name}" && \
     echo "${echo_prefix}"
