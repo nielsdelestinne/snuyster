@@ -33,7 +33,7 @@ echo "     ║ ║  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 source src/configuration/variables.sh
 source src/configuration/tools.sh
-source src/components/logger.sh
+source src/shared/logger.sh
 
 # Create required directories and files if they do not yet exist
 if [ ! -d "${workspace}/$reports_folder" ]; then
@@ -63,13 +63,13 @@ read -rp "     ╚═╩══ Provide your selection (number): " option
 case $option in
   1)
       clear
-      source "${workspace}/src/components/initialize/initialize.sh"
-      source "${workspace}/src/components/menu.sh"
+      source "${workspace}/src/initialize/initialize.sh"
+      source "${workspace}/src/main-menu/menu.sh"
       exit
       ;;
   2)
       clear
-      source "${workspace}/src/components/menu.sh"
+      source "${workspace}/src/main-menu/menu.sh"
       exit
       ;;
   3)

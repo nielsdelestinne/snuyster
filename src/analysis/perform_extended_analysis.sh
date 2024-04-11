@@ -1,22 +1,32 @@
 #!/bin/bash
+clear
 echo "╔══════════════════════════════════════════════════════════════════════════════════════════╗"
 echo "║ ╔══════════════════════════════════════════════════════════════════════════════════════╗ ║"
 echo "║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
 echo "║ ║ ░░░                                                       ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
-echo "║ ║ ░░░   ▷  I N I T I A L I Z E   S N U Y S T E R            ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
+echo "║ ║ ░░░   ▷  F U L L   A N A L Y S I S                        ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
 echo "║ ║ ░░░                                                       ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
 echo "║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
 echo "║ ╚══════════════════════════════════════════════════════════════════════════════════════╝ ║"
 echo "╚════╗ ╔═══════════════════════════════════════════════════════════════════════════════════╝"
+# Get clones repository names
+source "${workspace}/src/shared/get_cloned_repository_names.sh"
+readarray -t repository_names < <(get_cloned_repository_names)
 
-source "${workspace}/src/components/initialize/check-versions.sh"
-source "${workspace}/src/components/initialize/clone_repositories.sh"
-source "${workspace}/src/components/initialize/generate_git_log.sh"
+# Perform multiple analyses
+analyses_to_run=('age' 'soc' 'entity-churn' 'cloc' 'revisions' 'revloc')
+for analysis_to_run in "${analyses_to_run[@]}"; do
+  IFS="${array_delimiter}"
+  source "${workspace}/src/analysis/perform_analysis.sh"
+  perform_analysis "${analysis_to_run}" "${repository_names[*]}"
+  unset IFS
+done
 
-echo " ╔═╔═╝═╝ "
-echo " ║ ║ "
-echo " ║ ║ ✓ Done initializing Snuyster."
-echo " ║ ║"
-echo " ╙┬╜"
-read -rp "  │  Press enter to continue..."
-clear
+# Aggregate results
+for repository in "${repository_names[@]}"; do
+  python "${workspace}/src/analysis/aggregate_extended_analysis_single_repository.py" "${workspace}" "${repository}"
+done
+python "${workspace}/src/analysis/aggregate_extended_analysis_multiple_repositories.py" "${workspace}"
+
+# Footer
+source "${workspace}/src/main-menu/menu_task_footer.sh"

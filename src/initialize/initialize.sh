@@ -1,32 +1,22 @@
 #!/bin/bash
-clear
 echo "╔══════════════════════════════════════════════════════════════════════════════════════════╗"
 echo "║ ╔══════════════════════════════════════════════════════════════════════════════════════╗ ║"
 echo "║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
 echo "║ ║ ░░░                                                       ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
-echo "║ ║ ░░░   ▷  F U L L   A N A L Y S I S                        ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
+echo "║ ║ ░░░   ▷  I N I T I A L I Z E   S N U Y S T E R            ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
 echo "║ ║ ░░░                                                       ░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
 echo "║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║"
 echo "║ ╚══════════════════════════════════════════════════════════════════════════════════════╝ ║"
 echo "╚════╗ ╔═══════════════════════════════════════════════════════════════════════════════════╝"
-# Get clones repository names
-source "${workspace}/src/functionality/get_cloned_repository_names.sh"
-readarray -t repository_names < <(get_cloned_repository_names)
 
-# Perform multiple analyses
-analyses_to_run=('age' 'soc' 'entity-churn' 'cloc' 'revisions' 'revloc')
-for analysis_to_run in "${analyses_to_run[@]}"; do
-  IFS="${array_delimiter}"
-  source "${workspace}/src/functionality/perform_analysis.sh"
-  perform_analysis "${analysis_to_run}" "${repository_names[*]}"
-  unset IFS
-done
+source "${workspace}/src/initialize/check-versions.sh"
+source "${workspace}/src/initialize/clone_repositories.sh"
+source "${workspace}/src/initialize/generate_git_log.sh"
 
-# Aggregate results
-for repository in "${repository_names[@]}"; do
-  python "${workspace}/src/functionality/aggregate_extended_analysis_single_repository.py" "${workspace}" "${repository}"
-done
-python "${workspace}/src/functionality/aggregate_extended_analysis_multiple_repositories.py" "${workspace}"
-
-# Footer
-source "${workspace}/src/components/menu_task_footer.sh"
+echo " ╔═╔═╝═╝ "
+echo " ║ ║ "
+echo " ║ ║ ✓ Done initializing Snuyster."
+echo " ║ ║"
+echo " ╙┬╜"
+read -rp "  │  Press enter to continue..."
+clear
