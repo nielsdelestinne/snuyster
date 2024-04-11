@@ -9,7 +9,7 @@ echo "║ ║ ░░░░░░░░░░░░░░░░░░░░░░
 echo "║ ╚══════════════════════════════════════════════════════════════════════════════════════╝ ║"
 echo "╚════╗ ╔═══════════════════════════════════════════════════════════════════════════════════╝"
 
-source "${workspace}/src/initialize/check-versions.sh"
+source "${workspace}/src/initialize/check_versions.sh"
 source "${workspace}/src/initialize/clone_repositories.sh"
 source "${workspace}/src/initialize/generate_git_log.sh"
 
