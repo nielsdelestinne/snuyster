@@ -24,7 +24,7 @@ function perform_analysis() {
       cd "${workspace}" || exit
     else
       if [ $analysis_to_run == 'revloc' ]; then
-        output=$(python "${workspace}/src/functionality/generate_revision_per_loc.py" "${workspace}/${reports_folder}/${repository}_revisions.csv" "${workspace}/${reports_folder}/${repository}_cloc.csv")
+        output=$(python "${workspace}/src/analysis/generate_revision_per_loc.py" "${workspace}/${reports_folder}/${repository}_revisions.csv" "${workspace}/${reports_folder}/${repository}_cloc.csv")
         echo "$output" >"${workspace}/${reports_folder}/${repository}_revloc.csv"
       else
         code_maat -l "${workspace}/${git_logs_folder}/${repository}.log" -c git2 -o "${workspace}/${reports_folder}/${repository}_${analysis_to_run}.csv" -a "${analysis_to_run}"
