@@ -17,7 +17,7 @@ echo -e "${echo_prefix}4) Perform single analysis"
 echo -e "${echo_prefix}5) Quit"
 
 echo "${echo_prefix}"
-read -rp "     ╚═╝ Make your selection (number): " option
+read -rp "     ╚═╝ Provide your selection (number): " option
 
 case $option in
   1)

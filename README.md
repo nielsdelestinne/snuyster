@@ -127,7 +127,6 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
   - OR, mount the folder in which the already clones repositories exist
   - in docker container, run ./inspect.sh
 - [ ] Properly document
-- [ ] replace "skip" menu argument with menu option (for docker)
 - [ ] Release as 1.0.0 (ARM... also AMD?)
 - [ ] Push image to dockerhub
   - Simplified
@@ -135,11 +134,10 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
 - [ ] Add Plot functionality to summary
 - [ ] Restructure folders so that only one folder needs to be mounted
   - All other folders should be created if they do not yet exits.
-- [ ] provide ssh keys for private git repository access from inside docker container
 - [ ] Create a nice README
-  - [ ] Write explanation in tool (for user)
-  - [ ] Document direnv / asdf
-  - [ ] to-clone requires an empty line or it skips the last repo
+- - [ ] Document direnv / asdf
+- [ ] Write explanation in tool (for user)
+- [ ] to-clone requires an empty line or it skips the last repo
 
 # Resources
 
