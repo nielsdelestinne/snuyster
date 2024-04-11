@@ -21,7 +21,7 @@ function invalid_analysis_mode() {
   echo "${echo_prefix}"
 }
 
-# Get clones repository names
+# Get cloned repository names
 source "${workspace}/src/shared/get_cloned_repository_names.sh"
 readarray -t repository_names < <(get_cloned_repository_names)
 
