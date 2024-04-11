@@ -20,6 +20,10 @@ source "${workspace}/src/analysis/perform_analysis.sh"
 perform_analysis summary "${repository_names[*]}"
 unset IFS
 
+echo "${echo_prefix} ... (Showing plot window. close the window to continue with Snuyster)"
+echo "${echo_prefix}"
+
+
 # Aggregate results
 python "${workspace}/src/analysis/aggregate_summary_analysis.py" "${workspace}"
 
