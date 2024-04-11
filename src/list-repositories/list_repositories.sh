@@ -15,7 +15,6 @@ readarray -t repository_names < <(get_cloned_repository_names)
 
 echo "${echo_prefix}"
 echo "${echo_prefix}Repositories:"
-echo "${echo_prefix}    │"
 for repository_name in "${repository_names[@]}"; do
     echo "${echo_prefix}    └── ${repository_name}"
 done
