@@ -67,6 +67,12 @@ Released:
 
 - `docker build -t niedel/snuyster:latest -t niedel/snuyster:1.0.0 .`
 
+# License
+
+Copyright © 2024 Niels Delestinne
+
+Distributed under the GNU General Public License v3.0.
+
 ## Usage
 
 > REVISIT THIS
@@ -120,7 +126,6 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
   - Mount / provide a list of repositories to clone
   - OR, mount the folder in which the already clones repositories exist
   - in docker container, run ./inspect.sh
-- [ ] Set correct license (see `generate_revision_per_loc`)
 - [ ] Properly document
 - [ ] replace "skip" menu argument with menu option (for docker)
 - [ ] Release as 1.0.0 (ARM... also AMD?)
