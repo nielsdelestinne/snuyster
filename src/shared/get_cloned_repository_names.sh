@@ -5,7 +5,7 @@ function get_cloned_repository_names() {
   cloned_repositories=()
   while IFS= read -r -d $'\0' repository; do
       cloned_repositories+=("$repository")
-  done < <(find "${workspace}/${repositories_folder}" -mindepth 1 -maxdepth 1 -type d -print0)
+  done < <(find "${workspace}/${repositories_folder}" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
 
   for repository_path in "${cloned_repositories[@]}"; do
       repository_name="${repository_path##*/}"  # extracts repo-name.git from my/path/to/repositories/repo-name.git
