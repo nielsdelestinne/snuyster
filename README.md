@@ -1,52 +1,126 @@
 
 # Snuyster
 
-A command-line tool built on top of [Code Maat](https://github.com/adamtornhill/code-maat) to mine and analyze data from version-control systems.
+###### A command-line tool to retrieve, generate and analyze data from Git repositories.
 
-# Why
+> "To understand large-scale software systems we need to look at their evolution. Version controlled data blends technical, social and organizational information along a temporal axis that let us map out our interaction patterns in the code and application landscape. Analyzing these patterns gives us early warnings on potential design issues and development bottlenecks, as well as suggesting new modularities based on actual interactions with the code. Addressing these issues saves costs, simplifies maintenance and let us evolve our systems in the direction of how we actually work with the code."
+> - _Adam Thornhill, author of Your Code as a Crime Scene_
 
-## ... do we need to analyze data from VCS?
-Taken from Code Maat:
-> To understand large-scale software systems we need to look at their evolution. The history of our system provides us with data we cannot derive from a single snapshot of the source code. Instead VCS data blends technical, social and organizational information along a temporal axis that let us map out our interaction patterns in the code. Analyzing these patterns gives us early warnings on potential design issues and development bottlenecks, as well as suggesting new modularities based on actual interactions with the code. Addressing these issues saves costs, simplifies maintenance and let us evolve our systems in the direction of how we actually work with the code.
-
-## ... did you create Snuyster?
-
-Code Maat does a great job at providing the scripts necessary to perform analyses. However, it does not provide the nuts and bolts to generate these analyses for many different repositories at once and does not aggregate these results.
+## So, what are you looking for?
+1. [I want know about Snuyster's features.](#features)
+1. [I want to use Snuyster.](#use)
+1. [I want to contribute.](#contribute)
 
 # Features
 
-Snuyster offers the following features:
+Snuyster offers the following features
 
-- A Docker container containing python
-- Direct access to Code Maat
+## Dockerized runtime
 
-Some scripts to perform code analyses
+Snuyster comes with batteries included: Snuyster's Docker image contains all required tools, scripts and a convenient cli to peform analyses and extract the resulting data.
 
-> Uses code-maat (see: "Your code as a crime scene" book) and some additional tools such as cloc (for counting lines) and Python (matplotlib) for visualizing the results.
+## Git support
+
+Snuyster can access your public and private repositories with ease:
+
+- Provide Snuyster with a set of repository URLs and it will clone the repositories for you.
+- Or, mount a directory which already contains your cloned repository. 
+
+Snuyster will use these repositories to extract their entire Git history, in a processable format for further analysis.
+
+## Perform analyses
+
+Snuyster allows you to perform many different analyses on the extracted data.
+
+For performing the actual analyses, the following tools are used:
+
+- [Code Maat](https://github.com/adamtornhill/code-maat): analyze data from version-control systems (VCS).
+- [Cloc](https://github.com/AlDanial/cloc): counts blank lines, comment lines, and physical lines of source code in many programming languages.
+
+## Aggregation
+
+Snuysters aggregates the results of the performed analyses of individual Git repositories into combined reports that span all repositories.
+
+This allows to easily compare the analysis results between repositories.
+
+## CSV Reports
+
+All reports (individual and aggregated) are exported as CSV files and can be imported into other tools - like spreadsheets - for further analysis.
 
 # Use
 
+To use Snuyster, start its `Docker` container:
+
 ```
 docker run \
--v /Users/niedel/private-repos/snuyster/results:/results \
--v /Users/niedel/private-repos/snuyster/repositories:/repositories \
+-v <path>/repositories:/repositories \
+-v <path>/results:/results \
 -v ~/.ssh:/root/.ssh:ro \
---name snuyster -it niedel/snuyster
+--name snuyster -it niedel/snuyster:latest
 ```
 
-After closing your initial session, you can simply start the container and exec into it:
+Some information about this command:
 
-1. `docker start snuyster`
-2. `docker exec -it snuyster bash`
-3. `./snusyter.sh`
+- `docker run` will start a container from the image `niedel/snuyster:latest`
+- `-v <path>/repositories:/repositories` will mount your folder of choice (e.g. `<path>/repositories`) to the container folder `/repositories`.
+  - Your mounted folder should contain the cloned repositories you wish to analyse.
+  - Or, a file named `to-clone.txt` that contains the URLs of the repositories to clone and analyse.
+  - Or, a combination of both.
+- `-v <path>/results:/results` will mount your folder of choice (e.g. `<path>/results`) to the container folder `/results`. 
+  - All the `.csv` reports that Snuyster will generate, will appear in your mounted folder.
+- `--name snuyster` will set the name of the container: you can create different containers, for different sets of repositories you want to analyze.
+
+After the container is started, Snuyster is automatically started. 
+
+- Follow the onscreen instructions and happy analyzing!
+
+### Container
+
+The next time you wish to use Snuyster, you can simply start the container you previously created and exec into it:
+
+1. Start the container: `docker start snuyster` (where `snuyster` is the name of the container)
+2. Exec into the container: `docker exec -it snuyster bash`
+3. Run `./snusyter.sh` from within the container to start Snuyster
+
+### to-clone.txt
+
+Upon initialization, Snuyster will look for a file name `to-clone.txt` in the mounted repositories folder. 
+
+- If the file is found, Snuyster expects that each line contains a URL to an online Git repository, which it will try to clone.
+
+```
+https://github.com/<user>/<repo>
+https://github.com/<user>/<repo>.git
+git@github.com:<user>/<repo>.git
+git@github.com:<org>/<repo>.git
+https://bitbucket.com/<user>/<repo>.git
+(...etc)
+```
+
+The `to-clone.txt` file can be combined with already cloned repositories.
+
+- For example, `-v /Users/me/my-repositories-to-analyze:/repositories`
+
+```
+my-repositories-to-analyze
+└── my-cloned-repository-1
+└── my-cloned-repository-2
+└── my-cloned-repository-3
+└── to-clone.txt
+```
 
 # Contribute
 
+Everyone's welcome to contribute via pull-requests.
+
+Snuyster consists of some bash and python scripts. But, it requires additional tools such as (for example) Java for running code-maat.
+
 ## Installation
 
-Run `asdf install` to install the correct tools (e.g. python)
+Use `direnv` (which is configured to use `asdf`), or `asdf`, or any other to install the following required tools:
 
-- In Intellij's Module settings, select and set the Python SDK (from ASDF) 
+- Java 21 (used for running code-maat)
+- Python 3.12
 
 Using pip, install the following Python libraries:
 
@@ -54,68 +128,27 @@ Using pip, install the following Python libraries:
 - `pip install pandas`
 - `pip install matplotlib`
 
-Install `cloc` using brew
+Install `cloc` (e.g. on macOS, using `brew`)
+
 - `brew install cloc`
 
 ## Dockerfile and build image
 
-Unreleased:
+Building a Dockerfile locally:
 
 - `docker build -t niedel/snuyster:latest -t niedel/snuyster:0.0.1 .`
 
-Released:
+Publishing a Dockerfile is performed by the maintainer.
 
-- `docker build -t niedel/snuyster:latest -t niedel/snuyster:1.0.0 .`
+## Structure
+
+All source-code can be found in `src/`, within this folder, the code is organised in functional packages.
 
 # License
 
 Copyright © 2024 Niels Delestinne
 
 Distributed under the GNU General Public License v3.0.
-
-## Usage
-
-> REVISIT THIS
-
-All subsequent steps require the previous step to be executed (at least once)
-
-### 1. Generate data-rich logs using Git
-Run `./generate_logs.sh`
-
-- This will create a dedicate log file for each service in `datafiles/<service>.log`
-- _Only has to be rerun when a new repository is to be included._
-
-### 2. Perform an analysis on the logs
-Run `./perform_analysis.sh <analysis>`
-
-- `<analysis>` must be one of code-maat's or cloc analysis options (e.g. `summary`).
-- _Run the script without an analysis option to view all possible options._
-
-### 3. (a) Aggregate the same analysis of different services into a single file
-Run `./aggregate_summary_analyses.sh <analysis>` 
-
-- This will create one file containing the aggregated analysis service in `datafiles/aggregated/<analysis>.csv`
-- Currently only `summary` is supported
-
-### 3. (b) Aggregate different analyses of all services into a single file
-Run `./aggregate_analyses_all_services.sh <service>`
-
-- This will create one file containing the aggregated analyses per service in `datafiles/aggregated/<service>.csv`
-- And, one file the aggregated analyses of all services in `datafiles/aggregated/aggregated-services-analyses.csv`
-
-### 3. (c) Aggregate the abs-churn analysis of all services into a single file
-Run `./aggregate_abs-churn_analysis_all_services.sh <service>`
-
-- This will create one file containing the aggregated analyses in `datafiles/aggregated/aggregated-abs-churn.csv`
-- And, one file the aggregated analyses of all services in `datafiles/aggregated/aggregated-services-analyses.csv`
-
-
-### 4. Generate a plot from the aggregated result 3 (a)
-
-Run `./plot.sh`
-
-- It will prompt to provide the aggregated `<analysis>` to visualize.
-- Currently only `summary` is supported
 
 # Todo
 
@@ -126,16 +159,13 @@ Gebruik de unofficial code-maat docker image, komt met python en cloc en voorzie
   - Mount / provide a list of repositories to clone
   - OR, mount the folder in which the already clones repositories exist
   - in docker container, run ./inspect.sh
-- [ ] Properly document
 - [ ] Release as 1.0.0 (ARM... also AMD?)
 - [ ] Push image to dockerhub
 - [ ] Provide a help option
-- [ ] Create a nice README
-  - [ ] Document direnv / asdf
-  - [ ] Write explanation in tool (for user)
+- [x] Create a nice README
+  - [x] Document direnv / asdf
+- [ ] Write explanation in tool (for user) for the analyses
 
 # Resources
 
-- https://en.wikipedia.org/wiki/List_of_Unicode_characters
-- https://github.com/stevenalexander/code-maat-python
 - https://github.com/adamtornhill/code-maat
