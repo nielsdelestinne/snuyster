@@ -12,7 +12,9 @@ echo "╚════╗ ╔═════════════════�
 echo "${echo_prefix}"
 echo -e "${echo_prefix}1) List repositories"
 echo -e "${echo_prefix}2) Perform summary analysis"
+echo "${echo_prefix}    └── # of commits, # of entities, # of entities changed, # authors and a plot"
 echo -e "${echo_prefix}3) Perform extended analysis"
+echo "${echo_prefix}    └── age, soc, entity-churn, revision per loc."
 echo -e "${echo_prefix}4) Perform single analysis"
 echo -e "${echo_prefix}5) Quit"
 
