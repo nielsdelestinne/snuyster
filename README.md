@@ -1,7 +1,31 @@
-
 # Snuyster
 
 ###### A command-line tool to retrieve, generate and analyze data from Git repositories.
+
+```
+╔══════════════════════════════════════════════════════════════════════════════════════════╗
+║ ╔══════════════════════════════════════════════════════════════════════════════════════╗ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░              ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    ░░░░░░    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    ░░░░░░░░░░░░░░░    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                       ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                       ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   S N U Y S T E R !   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░                       ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ║ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ║ ║
+║ ╚══════════════════════════════════════════════════════════════════════════════════════╝ ║
+╚══════════════════════════════════════════════════════════════════════════════════════════╝
+```
 
 > "To understand large-scale software systems we need to look at their evolution. Version controlled data blends technical, social and organizational information along a temporal axis that let us map out our interaction patterns in the code and application landscape. Analyzing these patterns gives us early warnings on potential design issues and development bottlenecks, as well as suggesting new modularities based on actual interactions with the code. Addressing these issues saves costs, simplifies maintenance and let us evolve our systems in the direction of how we actually work with the code."
 > - _Adam Thornhill, author of Your Code as a Crime Scene_
@@ -17,7 +41,7 @@ Snuyster offers the following features
 
 ## Dockerized runtime
 
-Snuyster comes with batteries included: Snuyster's Docker image contains all required tools, scripts and a convenient cli to peform analyses and extract the resulting data.
+Snuyster comes with batteries included: Snuyster's Docker image contains all required tools, scripts and a convenient cli to perform analyses and extract the resulting data.
 
 ## Git support
 
@@ -68,6 +92,8 @@ Some information about this command:
   - Or, a combination of both.
 - `-v <path>/results:/results` will mount your folder of choice (e.g. `<path>/results`) to the container folder `/results`. 
   - All the `.csv` reports that Snuyster will generate, will appear in your mounted folder.
+- `~/.ssh:/root/.ssh:ro` will mount your `.ssh` folder to the container's `.ssh` folder.
+  - By mounting your `.ssh` folder, it's possible for Snuyster to clone your private repositories.
 - `--name snuyster` will set the name of the container: you can create different containers, for different sets of repositories you want to analyze.
 
 After the container is started, Snuyster is automatically started. 
@@ -134,9 +160,11 @@ Install `cloc` (e.g. on macOS, using `brew`)
 
 ## Dockerfile and build image
 
-Building a Dockerfile locally:
+Building & push a multi-platform Dockerfile:
 
-- `docker build -t niedel/snuyster:latest -t niedel/snuyster:0.0.1 .`
+1. `docker buildx create --name snuyster-multi-platform --bootstrap --use`
+2. `docker buildx build --push --platform linux/amd64,linux/arm64 -t niedel/snuyster:latest -t niedel/snuyster:<version> .`
+
 
 Publishing a Dockerfile is performed by the maintainer.
 
@@ -149,17 +177,3 @@ All source-code can be found in `src/`, within this folder, the code is organise
 Copyright © 2024 Niels Delestinne
 
 Distributed under the GNU General Public License v3.0.
-
-# Todo
-
-Gebruik de unofficial code-maat docker image, komt met python en cloc en voorziet in een bash.
-
-- [x] Dockerize
-  - Start docker
-  - Mount / provide a list of repositories to clone
-  - OR, mount the folder in which the already clones repositories exist
-  - in docker container, run ./inspect.sh
-- [ ] Release as 1.0.0 (ARM... also AMD?)
-- [ ] Push image to dockerhub
-- [x] Create a nice README
-  - [x] Document direnv / asdf
