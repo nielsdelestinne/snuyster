@@ -71,6 +71,8 @@ This allows to easily compare the analysis results between repositories.
 
 All reports (individual and aggregated) are exported as CSV files and can be imported into other tools - like spreadsheets - for further analysis.
 
+![img/added_lines_per_repository_temporal.png](img/added_lines_per_repository_temporal.png)
+
 # Use
 
 To use Snuyster, start its `Docker` container:
@@ -158,6 +160,12 @@ Install `cloc` (e.g. on macOS, using `brew`)
 
 - `brew install cloc`
 
+## Develop locally
+
+All source-code can be found in `./src`, within this folder, the code is organised in functional packages.
+
+To run Snuyster, navigate to Snuyster's workspace and execute the following command `bash snuyster.sh`
+
 ## Dockerfile and build image
 
 Building & push a multi-platform Dockerfile:
@@ -167,10 +175,6 @@ Building & push a multi-platform Dockerfile:
 
 
 Publishing a Dockerfile is performed by the maintainer.
-
-## Structure
-
-All source-code can be found in `src/`, within this folder, the code is organised in functional packages.
 
 # License
 
