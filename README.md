@@ -71,6 +71,8 @@ This allows to easily compare the analysis results between repositories.
 
 All reports (individual and aggregated) are exported as CSV files and can be imported into other tools - like spreadsheets - for further analysis.
 
+The graph below shows the amount of added lines, per year, for each repository.
+
 ![img/added_lines_per_repository_temporal.png](img/added_lines_per_repository_temporal.png)
 
 # Use
